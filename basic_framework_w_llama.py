@@ -8,7 +8,7 @@ import streamlit as st
 st.title('Langchain Practice using OpenAI')
 input_text=st.text_input("search the topic you want")
 
-##OPENAI LLMS
+##Llama LLMS
 llm=OllamaLLM(model="llama3")
 
 if input_text:
