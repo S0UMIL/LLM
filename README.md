@@ -20,5 +20,3 @@ A Streamlit app that fetches footballer info and DOB using LangChain prompt chai
 - Streamlit
 - FAISS
 - HuggingFace Embeddings
-
-## Setup
