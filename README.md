@@ -14,9 +14,14 @@ A simple language translator app using LangChain prompt templates and Llama 3.2.
 ### 3. FootballerHub (footballerHub.py)
 A Streamlit app that fetches footballer info and DOB using LangChain prompt chaining.
 
+## 4. AskMyCV-RAG (test.ipynb)
+A RAG-based chatbot that lets you query your resume using natural language, built with LangChain, Pinecone vector database, HuggingFace embeddings, and Llama 3.2 via Ollama.
+
 ## Tech Stack
 - LangChain
 - Ollama (Llama 3.2)
 - Streamlit
 - FAISS
 - HuggingFace Embeddings
+- Pinecone
+- python-dotenv
