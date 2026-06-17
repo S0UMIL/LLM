@@ -17,6 +17,10 @@ A Streamlit app that fetches footballer info and DOB using LangChain prompt chai
 ## 4. AskMyCV-RAG (test.ipynb)
 A RAG-based chatbot that lets you query your resume using natural language, built with LangChain, Pinecone vector database, HuggingFace embeddings, and Llama 3.2 via Ollama.
 
+## 5.Automated design/project report generator(RAGproject.py)
+Automates design/technical project report creation: a coordinator fills out an intake form, a local LLM (via Ollama) generates a structured draft, and it's auto-formatted into a Word document for review. Goal: cut report drafting from hours to minutes with consistent formatting.
+Current stage: basic form → LLM → docx pipeline working. Next: company template formatting, proper heading structure, domain-specific prompt tuning.
+
 ## Tech Stack
 - LangChain
 - Ollama (Llama 3.2)
@@ -25,3 +29,4 @@ A RAG-based chatbot that lets you query your resume using natural language, buil
 - HuggingFace Embeddings
 - Pinecone
 - python-dotenv
+- python-docx
