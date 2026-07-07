@@ -7,6 +7,8 @@ from langchain_core.prompts import PromptTemplate
 from datasets import Dataset
 from ragas import evaluate
 from ragas.metrics import faithfulness, answer_relevancy, context_precision, context_recall
+from ragas.llms import LangchainLLMWrapper
+from ragas.embeddings import LangchainEmbeddingsWrapper
 
 # ---------- pipeline setup (same as PDFreader.py, minus Streamlit) ----------
 pdf = PyPDFDirectoryLoader('C:/Users/soumi/OneDrive/Desktop/CODES/')
@@ -28,6 +30,8 @@ prompt = PromptTemplate(
     template="Use the following context from {context} and answer this {question},the given context is an CV of an student try to give consise answer around 50 words and keep an good impression of the person's cv. give an overall rating of the cv out of 10 at the end of answer "
 )
 chain = prompt | llm
+ragas_llm = LangchainLLMWrapper(llm)
+ragas_embeddings = LangchainEmbeddingsWrapper(embeddings)
 
 # ---------- golden dataset ----------
 questions = [
@@ -56,7 +60,9 @@ eval_dataset = Dataset.from_list(result)
 
 results = evaluate(
     eval_dataset,
-    metrics=[faithfulness, answer_relevancy, context_precision, context_recall]
+    metrics=[faithfulness, answer_relevancy, context_precision, context_recall],
+    llm=ragas_llm,
+    embeddings=ragas_embeddings
 )
 
 print(results.to_pandas())
