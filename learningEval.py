@@ -37,9 +37,10 @@ ground_truths = [
     "No the candidate is currently doing undergrad",
     "currently the cv shows no work experience but has worked on multiple projects in the domain of AI"
 ]
-for question , ground_truths in zip(questions,ground_truths):
+for question,gt in zip(questions,ground_truths):
     docs=vector_store.similarity_search(question,k=3)
     context="\n".join([doc.page_content for doc in docs])
-    answer=(chain.invoke({"context": context,"question": question}))
-    row={"question":question,"context":context,"answer":answer}
+    answer=chain.invoke({"context":context,"question":question})
+    contexts=[doc.page_content for doc in docs]
+    row={"question":question,"context":context,"answer":answer,"contexts":contexts,"ground_truth":gt}
     result.append(row)
