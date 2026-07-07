@@ -44,3 +44,6 @@ for question,gt in zip(questions,ground_truths):
     contexts=[doc.page_content for doc in docs]
     row={"question":question,"context":context,"answer":answer,"contexts":contexts,"ground_truth":gt}
     result.append(row)
+from datasets import Dataset
+
+eval_dataset = Dataset.from_list(result)#converting result into actual dataset
