@@ -66,3 +66,4 @@ results = evaluate(
 )
 
 print(results.to_pandas())
+##NEW ERROR OCCURED llama 3.2 3B to SMALL to handel a task like this
